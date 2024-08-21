@@ -3,6 +3,7 @@ import { useAppSelector } from "../../hooks"
 import { selectAllPosts } from "./postsSlice"
 import { PostAuthor } from "./PostAuthor";
 import { TimeAgo } from "../../../components/TimeAgo";
+import { ReactionButtons } from "./ReactionButtons";
 
 export const PostsList = () => {
   const posts = useAppSelector(selectAllPosts);
@@ -15,6 +16,7 @@ export const PostsList = () => {
       <p className="post-content">{post.content.substring(0, 100)}</p>
       <PostAuthor userId={post.user} />
       <TimeAgo timestamp={post.date} />
+      <ReactionButtons post={post} />
     </article>
   ))
 
